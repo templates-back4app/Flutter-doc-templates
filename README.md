@@ -9,7 +9,7 @@ Welcome to the Back4app Flutter Application Templates repository. These template
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Template Overview](#template-overview)
-  - [Basic Operations](#basic-operations)
+  - [Basic Operations](https://github.com/templates-back4app/Flutter-doc-templates/tree/2b225ab6e93c10365112ba06e08313dd393a9115/basic-operations)
 - [License](#license)
 
 ## Introduction
@@ -32,20 +32,14 @@ Before using these templates, ensure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/back4app-flutter-templates.git
+   git clone https://github.com/templates-back4app/Flutter-doc-templates.git
    cd back4app-flutter-templates
    ```
 
-2. Navigate to the `starter-template` or `final-template` directory:
+2. Navigate to the `basic-operations` and get started implememting Back4app in your Flutter project!:
 
    ```bash
-   cd starter-template
-   ```
-
-3. Install dependencies:
-
-   ```bash
-   flutter pub get
+   cd basic-operations
    ```
 
 ## License
