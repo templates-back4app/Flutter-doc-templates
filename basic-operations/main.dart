@@ -3,12 +3,14 @@ import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // Parse code
   final keyApplicationId = 'YOUR_APP_ID_HERE';
   final keyClientKey = 'YOUR_CLIENT_KEY_HERE';
   final keyParseServerUrl = 'https://parseapi.back4app.com';
 
   await Parse().initialize(keyApplicationId, keyParseServerUrl,
       clientKey: keyClientKey, autoSendSessionId: true);
+  //
 
   runApp(const MaterialApp(home: TodoApp()));
 }
@@ -97,6 +99,7 @@ class _TodoAppState extends State<TodoApp> {
     return ListView.builder(
       itemCount: tasks.length,
       itemBuilder: (context, index) {
+        //Get Parse Object Values
         final varTodo = tasks[index];
         final varTitle = varTodo.get<String>('title') ?? '';
         bool done = varTodo.get<bool>('done') ?? false;
@@ -127,10 +130,12 @@ class _TodoAppState extends State<TodoApp> {
   Future<void> addTodo() async {
     String task = taskController.text.trim();
     if (task.isNotEmpty) {
+      // Parse code
       final todo = ParseObject('Todo')
         ..set('title', task)
         ..set('done', false);
       await todo.save();
+      //
 
       setState(() {
         tasks.add(todo);
@@ -140,9 +145,11 @@ class _TodoAppState extends State<TodoApp> {
   }
 
   Future<void> updateTodo(int index, bool done) async {
+    // Parse code
     final varTodo = tasks[index];
     varTodo.set('done', done);
     await varTodo.save();
+    //
 
     setState(() {
       tasks[index] = varTodo;
@@ -150,9 +157,11 @@ class _TodoAppState extends State<TodoApp> {
   }
 
   Future<List<ParseObject>> getTodo() async {
+    // Parse code
     QueryBuilder<ParseObject> queryTodo =
         QueryBuilder<ParseObject>(ParseObject('Todo'));
     final ParseResponse apiResponse = await queryTodo.query();
+    //
 
     if (apiResponse.success && apiResponse.results != null) {
       setState(() {
@@ -165,8 +174,10 @@ class _TodoAppState extends State<TodoApp> {
   }
 
   Future<void> deleteTodo(int index, String id) async {
+    // Parse code
     final varTodo = tasks[index];
     await varTodo.delete();
+    //
 
     setState(() {
       tasks.removeAt(index);
